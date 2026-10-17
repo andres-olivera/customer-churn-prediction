@@ -1,5 +1,9 @@
 # Project status
 
-This repository is being prepared as a reproducible telecom churn prediction portfolio project. Source code and evaluation reports will be added after local verification.
+Code, tests, documentation and workflows are version controlled.
 
-Dataset: [UCI Iranian Churn, ID 563](https://archive.ics.uci.edu/dataset/563/iranian+churn+dataset).
+The [verified experiment workflow](../.github/workflows/publish-results.yml)
+downloads the official source, trains the models, and commits
+`reports/metrics.json`, `reports/EXPERIMENT.md`, and the actual figures.
+Do not assume real-data performance until those outputs appear and the run
+is successful. No metrics are fabricated.
