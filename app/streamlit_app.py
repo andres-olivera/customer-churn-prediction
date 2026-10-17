@@ -95,8 +95,8 @@ with st.sidebar:
         "customer-churn-prediction/blob/main/reports/GROUPED_AUDIT.md)"
     )
 
-tab_single, tab_batch, tab_method = st.tabs(
-    ["Single fictional subscriber", "Batch CSV scoring", "Limitations & documentation"]
+tab_single, tab_batch, tab_business, tab_method = st.tabs(
+    ["Single fictional subscriber", "Batch CSV scoring", "Business scenario", "Limitations & documentation"]
 )
 
 with tab_single:
@@ -193,6 +193,48 @@ with tab_batch:
                 )
             except (ValueError, KeyError) as exc:
                 st.error(f"Invalid CSV: {exc}")
+
+with tab_business:
+    st.subheader("Hypothetical retention campaign economics")
+    st.warning(
+        "This is a manual **what-if scenario**, not a causal ROI estimate from "
+        "the UCI data. The dataset has no randomized offers or treatment outcomes."
+    )
+    s1, s2 = st.columns(2)
+    with s1:
+        contacts = st.slider("Fictional customers contacted", 0, 2000, 200, step=10)
+        assumed_uplift_pct = st.slider(
+            "Assumed incremental retention from outreach (%)", 0.0, 30.0, 5.0, step=0.5
+        )
+    with s2:
+        margin = st.number_input(
+            "Hypothetical contribution margin per retained customer (€)",
+            min_value=0.0,
+            max_value=10000.0,
+            value=120.0,
+            step=10.0,
+        )
+        cost = st.number_input(
+            "Hypothetical all-in cost per outreach (€)",
+            min_value=0.0,
+            max_value=1000.0,
+            value=3.0,
+            step=0.5,
+        )
+    incremental = contacts * (assumed_uplift_pct / 100.0)
+    gross = incremental * margin
+    expense = contacts * cost
+    net = gross - expense
+    v1, v2, v3 = st.columns(3)
+    v1.metric("Expected extra retained customers (assumed)", f"{incremental:.1f}")
+    v2.metric("Assumed gross margin (€)", f"{gross:,.0f}")
+    v3.metric("Hypothetical net result (€)", f"{net:,.0f}")
+    st.caption(
+        "Formula: contacts × assumed causal retention uplift × contribution margin "
+        "− contacts × cost. Actual uplift requires an A/B retention trial; "
+        "this calculator makes no inference from churn classification performance."
+    )
+
 
 with tab_method:
     st.markdown(
