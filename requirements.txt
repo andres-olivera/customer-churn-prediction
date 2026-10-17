@@ -1,0 +1,2 @@
+# Streamlit Community Cloud: install the project and its app extra.
+-e .[app]
