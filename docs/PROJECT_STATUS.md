@@ -14,10 +14,11 @@
 
 The Streamlit demonstration has been **publicly deployed**:
 [Launch the interactive application](https://andres-churn-prediction.streamlit.app/).
-The owner has visually verified initialization and one fictional single-customer
-prediction (1.3% estimated churn probability against 0.27 alert threshold).
-Batch CSV upload and business-scenario flows have not yet been individually
-verified in the live hosting environment.
+The live app was manually smoke-tested on 17 October 2026: model initialization,
+one fictional single-customer prediction (1.3% estimated churn probability at
+a 0.27 alert threshold), fictional batch CSV upload and prediction (2 records,
+1 above threshold), and responsive hypothetical business-scenario controls.
+These checks do not establish production readiness or longitudinal reliability.
 
 The original source CSV and serialized trained model are deliberately not
 committed. Anyone can download the original CC BY 4.0 dataset, rerun the
