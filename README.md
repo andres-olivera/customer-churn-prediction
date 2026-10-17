@@ -68,6 +68,27 @@ The model correctly flagged 94 of 99 churners in the test split, at the cost of 
 
 ![Precision-recall curve](reports/figures/precision_recall.png)
 
+## Robustness check: identical customer profiles
+
+A second, independently published sensitivity audit groups rows with **identical
+11-feature profiles** so that no such profiles can cross training,
+validation, test or cross-validation folds.
+
+- **2,826 unique profiles** among 3,150 rows; 324 repeat rows beyond the first.
+- **168 repeated-profile groups**, including **22 groups** with conflicting churn labels.
+- Group-isolated holdout (**635 rows**): **ROC-AUC 0.9841**, **average precision 0.9262**.
+- At validation-selected threshold **0.08**: precision **56.0%**, recall **97.0%**,
+  with 77 false positives and 3 missed churners.
+
+This check suggests ranking is robust to *exact-profile overlap*. The grouped
+audit uses an **uncalibrated** model, so its threshold-based performance is **not
+directly comparable** to the original calibrated experiment. Neither test proves
+future performance or effectiveness of retention interventions.
+
+Read the **[group-aware robustness audit](reports/GROUPED_AUDIT.md)**,
+[measured JSON](reports/grouped_holdout.json) and
+[methodological discussion](docs/METHODOLOGY.md).
+
 **All experiment outputs:**
 
 - [Experiment summary](reports/EXPERIMENT.md) — human-readable, versioned once training succeeds.
