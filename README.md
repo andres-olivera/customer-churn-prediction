@@ -9,7 +9,7 @@
 
 ### [🚀 Try the live churn prediction app](https://andres-churn-prediction.streamlit.app/)
 
-**Public Streamlit demo** · Estimate churn for an invented customer · Score fictional CSV records · Explore a hypothetical retention business scenario. Please do not upload actual personal or customer data. The individual scoring interface has been checked in the deployed app; batch scoring and scenarios still warrant end-to-end testing.
+**Public Streamlit demo** · Estimate churn for an invented customer · Score fictional CSV records · Explore a hypothetical retention business scenario. Please do not upload actual personal or customer data. The live app has been manually checked for single-customer scoring, fictional batch CSV upload, and responsive business-scenario controls (17 October 2026).
 
 **Start here:** [Live application](https://andres-churn-prediction.streamlit.app/) · [Recruiter-friendly case study](docs/PORTFOLIO_CASE_STUDY.md) · [Group-aware robustness audit](reports/GROUPED_AUDIT.md) · [Deployment notes](docs/DEPLOY_STREAMLIT.md).
 
