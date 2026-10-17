@@ -12,9 +12,12 @@
 - [Automated experiment run](https://github.com/andres-olivera/customer-churn-prediction/actions/runs/39028407239)
 - [Python CI run](https://github.com/andres-olivera/customer-churn-prediction/actions/runs/39028407278)
 
-The Streamlit application is implemented as a **local demo**, not yet hosted as
-a publicly accessible web application. Run the quickstart from the README,
-including local model training, before launching Streamlit.
+The Streamlit demonstration has been **publicly deployed**:
+[Launch the interactive application](https://andres-churn-prediction.streamlit.app/).
+The owner has visually verified initialization and one fictional single-customer
+prediction (1.3% estimated churn probability against 0.27 alert threshold).
+Batch CSV upload and business-scenario flows have not yet been individually
+verified in the live hosting environment.
 
 The original source CSV and serialized trained model are deliberately not
 committed. Anyone can download the original CC BY 4.0 dataset, rerun the
