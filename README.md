@@ -7,6 +7,8 @@
 
 **Python · scikit-learn · cross-validation · calibrated classification · Streamlit · GitHub Actions**
 
+**Start here:** [Recruiter-friendly case study](docs/PORTFOLIO_CASE_STUDY.md) · [Group-aware robustness audit](reports/GROUPED_AUDIT.md) · [How to deploy the interactive demo](docs/DEPLOY_STREAMLIT.md). The Streamlit application is **ready for hosting, not publicly deployed yet**.
+
 Built to show an analytical workflow beyond dashboarding: formulate a business problem, enforce data quality, prevent train/test leakage, compare multiple models, select a decision threshold, and report honest, reproducible performance.
 
 > The dataset describes customer behavior across months 1–9 and whether the account churned by month 12. This is a three-month planning horizon, **not** a real-time forecast from live production data.
