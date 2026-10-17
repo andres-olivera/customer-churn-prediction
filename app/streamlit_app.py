@@ -15,8 +15,9 @@ import streamlit as st
 from churn_prediction.data import FEATURES, validate_input
 
 st.set_page_config(page_title="Customer Churn | ML Portfolio", page_icon="📊", layout="wide")
-ARTIFACT = Path("artifacts/churn_model.joblib")
-DATA = Path("data/Customer_Churn.csv")
+ROOT = Path(__file__).resolve().parents[1]
+ARTIFACT = ROOT / "artifacts" / "churn_model.joblib"
+DATA = ROOT / "data" / "Customer_Churn.csv"
 
 
 @st.cache_resource(show_spinner="Training and loading the UCI model…")
@@ -24,12 +25,12 @@ def get_or_train_model():
     """Only load models created from this repository's own trusted training code."""
     if not ARTIFACT.exists():
         if not DATA.exists():
-            from scripts.download_data import main as fetch_original
+            from churn_prediction.download import download_data
 
-            fetch_original()
+            download_data(DATA)
         from churn_prediction.modeling import train
 
-        train(str(DATA), output_dir=str(ARTIFACT.parent), reports_dir="reports")
+        train(str(DATA), output_dir=str(ARTIFACT.parent), reports_dir=str(ROOT / "reports"))
     result = joblib.load(ARTIFACT)
     if result["features"] != FEATURES:
         raise ValueError("Model input contract mismatch; retraining is required.")
@@ -179,10 +180,16 @@ with tab_batch:
                     "Above validation threshold",
                     f"{int(scored['above_validation_threshold'].sum()):,}",
                 )
+                counts = pd.cut(
+                    scored["churn_probability"],
+                    bins=[0.0, 0.2, 0.4, 0.6, 0.8, 1.0],
+                    include_lowest=True,
+                ).value_counts().sort_index()
                 st.bar_chart(
-                    scored["churn_probability"].value_counts(
-                        bins=[0, .2, .4, .6, .8, 1.0], sort=False
-                    )
+                    pd.DataFrame({
+                        "Risk band": counts.index.astype(str),
+                        "Customers": counts.to_numpy(),
+                    }).set_index("Risk band")
                 )
                 st.dataframe(scored, use_container_width=True)
                 st.download_button(
