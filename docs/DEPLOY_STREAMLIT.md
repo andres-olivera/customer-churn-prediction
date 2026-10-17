@@ -4,11 +4,13 @@
 
 **Live URL:** [https://andres-churn-prediction.streamlit.app/](https://andres-churn-prediction.streamlit.app/)
 
-The owner has deployed the app in Streamlit Community Cloud. The initialization
-flow and a single-customer prediction have been visually verified on the live
-instance (the example returned a 1.3% risk, below the validation alert threshold
-of 0.27). The batch CSV and hypothetical business scenario still require
-end-to-end interactive verification.
+The owner has deployed the app in Streamlit Community Cloud. On 17 October 2026,
+the live initialization flow and a fictional single-customer prediction were
+visually verified (1.3% churn probability, below the 0.27 validation alert
+threshold). The downloadable fictional CSV template was uploaded and scored:
+2 records were processed, with 1 exceeding the alert threshold. The owner also
+confirmed the hypothetical business-scenario controls update their outputs.
+These are manual UI smoke tests, not production acceptance or cross-browser testing.
 
 The steps below describe how to deploy again, if hosting needs to be reset.
 
