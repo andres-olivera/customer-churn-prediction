@@ -1,0 +1,133 @@
+{
+  "design": "exact-feature-profile grouped split and grouped training CV",
+  "dataset": "UCI Iranian Churn (ID 563)",
+  "seed": 42,
+  "data_quality": {
+    "total_rows": 3150,
+    "unique_feature_profiles": 2826,
+    "duplicate_rows_beyond_first": 324,
+    "repeated_profile_groups": 168,
+    "rows_in_repeated_profile_groups": 492,
+    "conflicting_label_profile_groups": 22,
+    "rows_in_conflicting_label_groups": 83
+  },
+  "split": {
+    "train": {
+      "rows": 1883,
+      "churn_rate": 0.15613382899628253,
+      "unique_groups": 1695
+    },
+    "validation": {
+      "rows": 632,
+      "churn_rate": 0.15822784810126583,
+      "unique_groups": 562
+    },
+    "test": {
+      "rows": 635,
+      "churn_rate": 0.15905511811023623,
+      "unique_groups": 569
+    }
+  },
+  "train_validation_group_overlap": 0,
+  "train_test_group_overlap": 0,
+  "validation_test_group_overlap": 0,
+  "cv_method": "StratifiedGroupKFold(5), on train only",
+  "model_selection_metric": "mean training CV average precision",
+  "selected_model": "hist_gradient_boosting",
+  "cv_leaderboard": [
+    {
+      "model": "hist_gradient_boosting",
+      "cv_average_precision_mean": 0.9166191351854778,
+      "cv_roc_auc_mean": 0.9789520052458792
+    },
+    {
+      "model": "random_forest",
+      "cv_average_precision_mean": 0.8786623983185603,
+      "cv_roc_auc_mean": 0.9737360495151863
+    },
+    {
+      "model": "logistic_regression",
+      "cv_average_precision_mean": 0.7491539714956097,
+      "cv_roc_auc_mean": 0.9309505154566515
+    },
+    {
+      "model": "dummy",
+      "cv_average_precision_mean": 0.15612937976382305,
+      "cv_roc_auc_mean": 0.5
+    }
+  ],
+  "threshold_selection": "max validation F2; no calibration in grouped audit",
+  "validation": {
+    "n": 632,
+    "positive_n": 100,
+    "threshold": 0.08,
+    "accuracy": 0.9145569620253164,
+    "precision": 0.6533333333333333,
+    "recall": 0.98,
+    "f2": 0.8909090909090909,
+    "average_precision": 0.9214422835584433,
+    "roc_auc": 0.9823778195488723,
+    "brier_score": 0.03928908133756835,
+    "confusion_matrix": [
+      [
+        480,
+        52
+      ],
+      [
+        2,
+        98
+      ]
+    ]
+  },
+  "test": {
+    "n": 635,
+    "positive_n": 101,
+    "threshold": 0.08,
+    "accuracy": 0.8740157480314961,
+    "precision": 0.56,
+    "recall": 0.9702970297029703,
+    "f2": 0.846286701208981,
+    "average_precision": 0.9262064488942431,
+    "roc_auc": 0.9840916675937257,
+    "brier_score": 0.03571639344424236,
+    "confusion_matrix": [
+      [
+        457,
+        77
+      ],
+      [
+        3,
+        98
+      ]
+    ]
+  },
+  "test_dummy_baseline": {
+    "n": 635,
+    "positive_n": 101,
+    "threshold": 0.5,
+    "accuracy": 0.8409448818897638,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f2": 0.0,
+    "average_precision": 0.15905511811023623,
+    "roc_auc": 0.5,
+    "brier_score": 0.13376512144326236,
+    "confusion_matrix": [
+      [
+        534,
+        0
+      ],
+      [
+        101,
+        0
+      ]
+    ]
+  },
+  "limitations": [
+    "Exact matching predictor profiles are proxies, not actual customer IDs.",
+    "Dataset lacks observation times, customer IDs and independent cohorts.",
+    "Validation and test class prevalences may vary with group sizes.",
+    "This uncalibrated model differs from the original calibrated baseline.",
+    "The evaluation remains retrospective and cannot estimate intervention uplift."
+  ]
+}
