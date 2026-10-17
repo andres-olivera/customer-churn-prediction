@@ -90,9 +90,11 @@ with st.sidebar:
         "it does **not** represent an economically optimal campaign policy."
     )
     st.markdown(
-        "[Read original experiment](https://github.com/andres-olivera/"
-        "customer-churn-prediction/blob/main/reports/EXPERIMENT.md)  \\n"
-        "[Read robustness audit](https://github.com/andres-olivera/"
+        "[Original experiment](https://github.com/andres-olivera/"
+        "customer-churn-prediction/blob/main/reports/EXPERIMENT.md)"
+    )
+    st.markdown(
+        "[Robustness audit](https://github.com/andres-olivera/"
         "customer-churn-prediction/blob/main/reports/GROUPED_AUDIT.md)"
     )
 
