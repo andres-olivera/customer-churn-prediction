@@ -44,11 +44,15 @@ jobs:
         run: python scripts/figures.py
       - name: Summarize measurements
         run: python scripts/summarize_results.py
+      - name: Re-evaluate with exact-profile-grouped train CV and holdout
+        run: python scripts/audit_robustness.py
+      - name: Summarize robust validation measurements
+        run: python scripts/summarize_robustness.py
       - name: Publish only real metrics and graphics
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/metrics.json reports/EXPERIMENT.md reports/figures/
+          git add reports/metrics.json reports/EXPERIMENT.md reports/figures/ reports/grouped_holdout.json reports/GROUPED_AUDIT.md
           if ! git diff --cached --quiet; then
             git commit -m "reports: publish reproducible real-data evaluation"
             git push origin HEAD:main
