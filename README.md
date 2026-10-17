@@ -7,7 +7,11 @@
 
 **Python · scikit-learn · cross-validation · calibrated classification · Streamlit · GitHub Actions**
 
-**Start here:** [Recruiter-friendly case study](docs/PORTFOLIO_CASE_STUDY.md) · [Group-aware robustness audit](reports/GROUPED_AUDIT.md) · [How to deploy the interactive demo](docs/DEPLOY_STREAMLIT.md). The Streamlit application is **ready for hosting, not publicly deployed yet**.
+### [🚀 Try the live churn prediction app](https://andres-churn-prediction.streamlit.app/)
+
+**Public Streamlit demo** · Estimate churn for an invented customer · Score fictional CSV records · Explore a hypothetical retention business scenario. Please do not upload actual personal or customer data. The individual scoring interface has been checked in the deployed app; batch scoring and scenarios still warrant end-to-end testing.
+
+**Start here:** [Live application](https://andres-churn-prediction.streamlit.app/) · [Recruiter-friendly case study](docs/PORTFOLIO_CASE_STUDY.md) · [Group-aware robustness audit](reports/GROUPED_AUDIT.md) · [Deployment notes](docs/DEPLOY_STREAMLIT.md).
 
 Built to show an analytical workflow beyond dashboarding: formulate a business problem, enforce data quality, prevent train/test leakage, compare multiple models, select a decision threshold, and report honest, reproducible performance.
 
