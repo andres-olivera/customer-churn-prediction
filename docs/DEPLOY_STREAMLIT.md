@@ -1,8 +1,16 @@
 # Public Streamlit demonstration — deployment steps
 
-The repository contains a first-use initialization flow, fictional individual
-prediction, fictional CSV batch scoring, and clear limitations. It is **not yet
-deployed** until the repository owner authorizes hosting.
+## Public application
+
+**Live URL:** [https://andres-churn-prediction.streamlit.app/](https://andres-churn-prediction.streamlit.app/)
+
+The owner has deployed the app in Streamlit Community Cloud. The initialization
+flow and a single-customer prediction have been visually verified on the live
+instance (the example returned a 1.3% risk, below the validation alert threshold
+of 0.27). The batch CSV and hypothetical business scenario still require
+end-to-end interactive verification.
+
+The steps below describe how to deploy again, if hosting needs to be reset.
 
 ## Publish on Streamlit Community Cloud
 
