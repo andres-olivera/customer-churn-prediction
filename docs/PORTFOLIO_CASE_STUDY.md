@@ -1,9 +1,10 @@
 # Customer Churn Prediction — case study for hiring managers
 
 **[Launch the public interactive Streamlit demo](https://andres-churn-prediction.streamlit.app/)**
-(verified: model initialization and single fictional-customer scoring).
-The app also offers a fictional batch CSV mode and a hypothetical ROI
-scenario; these flows are available but require separate live testing.
+(manual live smoke checks on 17 October 2026: model initialization, fictional
+single-customer scoring, a two-row fictional CSV upload and scoring, and
+interactive changes to a hypothetical retention economics scenario).
+This demonstration does not establish real-world churn uplift or production fitness.
 
 ## The question
 
