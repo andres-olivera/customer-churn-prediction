@@ -1,5 +1,10 @@
 # Customer Churn Prediction — case study for hiring managers
 
+**[Launch the public interactive Streamlit demo](https://andres-churn-prediction.streamlit.app/)**
+(verified: model initialization and single fictional-customer scoring).
+The app also offers a fictional batch CSV mode and a hypothetical ROI
+scenario; these flows are available but require separate live testing.
+
 ## The question
 
 Could a telecom company prioritize account reviews based on estimated
@@ -78,5 +83,6 @@ intervention study before launching a retention policy.
 ## Limitations
 
 No independent future customer cohort, verified customer identifiers,
-causal retention uplift, fairness clearance or publicly hosted demo
-yet. This is a portfolio experiment, **not** a production service.
+causal retention uplift or fairness clearance. The public web demo
+is for fictional educational use only. This is a portfolio experiment,
+**not** a production service.
